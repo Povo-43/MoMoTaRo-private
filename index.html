@@ -3,19 +3,25 @@
         <title>桃太郎 - 音源コンソール</title>
     </head>
     <body>
+        <audio id="syakin" src="./musics/シャキーン3.mp3"></audio>
         <audio id="momofirst" src="./musics/桃first.mp3"></audio>
         <audio id="momosecond" src="./musics/桃second.mp3"></audio>
+        <audio id="tyantyan" src="./musics/ちゃんちゃん.mp3"></audio>
         
         <h1>桃太郎音源コンソール</h1>
         
         <button id="stopAll" style="background-color:#fef5fd;">すべて停止</button>
         
+        <button class="btn" data-id="syakin">シャキーン</button>
+            <p>桃を割るとき</p>
         <button class="btn" data-id="momofirst">短期戦闘音源</button>
             <p>After「犬が吠えました」</p>
         <button class="btn" data-id="momosecond">本格戦闘音源</button>
             <p>Before「生意気な小僧・・・」</p>
+        <button class="btn" data-id="tyantyan">おしまい!</button>
+            <p>ちゃんちゃん!の音源</p>
         <footer>
-            各音源の著作権は各音源の所持者にあります<br>
+            各音源の著作権は各音源の所持者(MicroPumpkin様(改変)、効果音ラボ様)にあります<br>
             また、学内以外での使用は禁止です。
         </footer>
         <style>
@@ -55,6 +61,13 @@
                     const sound = document.getElementById(id);
 
                     if (sound) {
+                        document.querySelectorAll("audio").forEach(sound => {
+                            sound.pause();
+                            sound.currentTime = 0;
+                        });
+                        document.querySelectorAll("button").forEach(btn => {
+                            btn.style.backgroundColor = "#ffffff";
+                        });
                         sound.currentTime = 0;
                         sound.play();
                         button.style.backgroundColor = "#ffedfc";
@@ -70,13 +83,13 @@
 
             // すべての音を停止
             document.getElementById("stopAll").addEventListener("click", () => {
-            document.querySelectorAll("audio").forEach(sound => {
-                sound.pause();
-                sound.currentTime = 0;
+                document.querySelectorAll("audio").forEach(sound => {
+                    sound.pause();
+                    sound.currentTime = 0;
+                });
                 document.querySelectorAll("button").forEach(btn => {
                     btn.style.backgroundColor = "#ffffff";
-                })
-            });
+                });
             });
 
         </script>
