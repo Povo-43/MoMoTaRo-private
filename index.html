@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>桃太郎 - 音源コンソール</title>
+    </head>
+    <body>
+        <audio id="momofirst" src="./musics/桃first.mp3"></audio>
+        <audio id="momosecond" src="./musics/桃second.mp3"></audio>
+        
+        <h1>桃太郎音源コンソール</h1>
+        
+        <button id="stopAll" style="background-color:#fef5fd;">すべて停止</button>
+        
+        <button class="btn" data-id="momofirst">短期戦闘音源</button>
+            <p>After「犬が吠えました」</p>
+        <button class="btn" data-id="momosecond">本格戦闘音源</button>
+            <p>Before「生意気な小僧・・・」</p>
+        <footer>
+            各音源の著作権は各音源の所持者にあります<br>
+            また、学内以外での使用は禁止です。
+        </footer>
+        <style>
+            @font-face {
+                font-family: 'topfont';
+                src: url(./Kiwi_maru.ttf);
+            }
+
+            html,button{
+                font-family: topfont, serif;
+            }
+            body{
+                background-color: #ffedfc;
+                text-align: center;
+            }
+            button{
+                margin: 10px auto;
+                display: block;
+                background-color: #ffffff;
+                border: #ffd7f8 solid 3px;
+                padding: 10px 50px;
+                font-size: large;
+                border-radius: 10px;
+            }
+            button:hover{
+                background-color: #fce7ff;
+            }
+            footer{
+                font-size:smaller;
+                color: #666666;
+            }
+        </style>
+        <script>
+            document.querySelectorAll(".btn").forEach(button => {
+                button.addEventListener("click", () => {
+                    const id = button.dataset.id;
+                    const sound = document.getElementById(id);
+
+                    if (sound) {
+                        sound.currentTime = 0;
+                        sound.play();
+                        button.style.backgroundColor = "#ffedfc";
+
+                        // 再生終了
+                        sound.addEventListener("ended", () => {
+                            console.log(id + " の再生が終了しました");
+                            button.style.backgroundColor = "#ffffff";
+                        }, { once: true });
+                    }
+                });
+            });
+
+            // すべての音を停止
+            document.getElementById("stopAll").addEventListener("click", () => {
+            document.querySelectorAll("audio").forEach(sound => {
+                sound.pause();
+                sound.currentTime = 0;
+                document.querySelectorAll("button").forEach(btn => {
+                    btn.style.backgroundColor = "#ffffff";
+                })
+            });
+            });
+
+        </script>
+    </body>
+</html>
