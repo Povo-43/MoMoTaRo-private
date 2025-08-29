@@ -82,13 +82,6 @@
                     const sound = document.getElementById(id);
 
                     if (sound) {
-                        document.querySelectorAll("audio").forEach(sound => {
-                            sound.pause();
-                            sound.currentTime = 0;
-                        });
-                        document.querySelectorAll("button").forEach(btn => {
-                            btn.style.backgroundColor = "#ffffff";
-                        });
                         sound.currentTime = 0;
                         sound.play();
                         button.style.backgroundColor = "#ffedfc";
