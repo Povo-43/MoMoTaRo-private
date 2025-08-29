@@ -5,27 +5,16 @@
         <meta name="description" content="学校の音楽祭で使うオーディオコンソール">
     </head>
     <body>
+        <h1>桃太郎文化祭用音源コンソール</h1>
+        <div id="bodybox">
+            <input id="password_input" type="password" placeholder="パスワードを入力">
+            <button onclick="passwordinput()">⇥</button>
+        </div>
+        <button onclick="window.location.reload();">⟳</button>
         <audio id="syakin" src="./musics/シャキーン3.mp3"></audio>
         <audio id="momofirst" src="./musics/桃first.mp3"></audio>
         <audio id="momosecond" src="./musics/桃second.mp3"></audio>
         <audio id="tyantyan" src="./musics/ちゃんちゃん.mp3"></audio>
-        
-        <h1>桃太郎文化祭用音源コンソール</h1>
-        
-        <button id="stopAll" style="background-color:#fef5fd;">すべて停止</button>
-        
-        <button class="btn" data-id="syakin">シャキーン</button>
-            <p>桃を割るとき</p>
-        <button class="btn" data-id="momofirst">短期戦闘音源</button>
-            <p>After「犬が吠えました」</p>
-        <button class="btn" data-id="momosecond">本格戦闘音源</button>
-            <p>Before「生意気な小僧・・・」</p>
-        <button class="btn" data-id="tyantyan">おしまい!</button>
-            <p>ちゃんちゃん!の音源</p>
-        <footer>
-            各音源の著作権は各音源の所持者(MicroPumpkin様(改変)、効果音ラボ様)にあります<br>
-            また、学校以外での使用は禁止です。
-        </footer>
         <style>
             @font-face {
                 font-family: 'topfont';
@@ -55,10 +44,39 @@
                 font-size:smaller;
                 color: #666666;
             }
+            input{
+                padding: 20px 10px;
+                font-size: 1.1em;
+                width: 300px;
+                border: #ffd7f8 solid 3px;
+                border-radius: 10px;
+                text-align: center;
+                margin: 30vh auto auto auto;
+            }
         </style>
         <script>
-            document.querySelectorAll(".btn").forEach(button => {
-                button.addEventListener("click", () => {
+            function passwordinput(){
+                if(document.getElementById("password_input").value == "momo2025"){
+                    document.getElementById("bodybox").innerHTML = `
+                        <button onclick="stop_audio();" style="background-color:#fef5fd;">すべて停止</button>
+                        
+                        <button onclick="audio_play(this);" class="btn" data-id="syakin">シャキーン</button>
+                            <p>桃を割るとき</p>
+                        <button onclick="audio_play(this);" class="btn" data-id="momofirst">短期戦闘音源</button>
+                            <p>After「犬が吠えました」</p>
+                        <button onclick="audio_play(this);" class="btn" data-id="momosecond">本格戦闘音源</button>
+                            <p>Before「生意気な小僧・・・」</p>
+                        <button onclick="audio_play(this);" class="btn" data-id="tyantyan">おしまい!</button>
+                            <p>ちゃんちゃん!の音源</p>
+                        <footer>
+                            各音源の著作権は各音源の所持者(MicroPumpkin様(改変)、効果音ラボ様)にあります<br>
+                            また、学校以外での使用は禁止です。
+                        </footer>
+                    `;
+
+                }
+            }
+            function audio_play(button){
                     const id = button.dataset.id;
                     const sound = document.getElementById(id);
 
@@ -80,11 +98,10 @@
                             button.style.backgroundColor = "#ffffff";
                         }, { once: true });
                     }
-                });
-            });
+                }
 
             // すべての音を停止
-            document.getElementById("stopAll").addEventListener("click", () => {
+            function stop_audio(){
                 document.querySelectorAll("audio").forEach(sound => {
                     sound.pause();
                     sound.currentTime = 0;
@@ -92,7 +109,7 @@
                 document.querySelectorAll("button").forEach(btn => {
                     btn.style.backgroundColor = "#ffffff";
                 });
-            });
+            };
 
         </script>
     </body>
