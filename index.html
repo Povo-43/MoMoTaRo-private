@@ -4,6 +4,16 @@
          <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <meta name="keywords" content="音楽,オーディオ, 音楽祭, 学習, 学校">
         <meta name="description" content="学校の音楽祭で使うオーディオコンソール">
+
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="#ffedfc">
+        <script>
+        if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+            .then(() => console.log("Service Worker registered"));
+        }
+        </script>
+
     </head>
     <body>
         <h1>桃太郎文化祭用音源コンソール</h1>
@@ -62,13 +72,13 @@
                     document.getElementById("bodybox").innerHTML = `
                         <button onclick="stop_audio();" style="background-color:#fef5fd;">すべて停止</button>
                         
+                        <button onclick="audio_play(this);" class="btn" data-id="syakin">シャキーン</button>
+                            <p>桃を割るとき</p>
                         <button onclick="audio_play(this);" class="btn" data-id="sampo">さんぽ</button>
                             <p>
                                 After犬に出会う<br>
                                 「あるこ〜あるこ〜」
                             </p>
-                        <button onclick="audio_play(this);" class="btn" data-id="syakin">シャキーン</button>
-                            <p>桃を割るとき</p>
                         <button onclick="audio_play(this);" class="btn" data-id="momofirst">短期戦闘音源</button>
                             <p>After「犬が吠えました」</p>
                         <button onclick="audio_play(this);" class="btn" data-id="momosecond">本格戦闘音源</button>
