@@ -12,6 +12,7 @@
             <button onclick="passwordinput()">⇥</button>
         </div>
         <button onclick="window.location.reload();">⟳</button>
+        <audio id="sampo" src="./musics/さんぽ.mp3"></audio>
         <audio id="syakin" src="./musics/シャキーン3.mp3"></audio>
         <audio id="momofirst" src="./musics/桃first.mp3"></audio>
         <audio id="momosecond" src="./musics/桃second.mp3"></audio>
@@ -61,6 +62,11 @@
                     document.getElementById("bodybox").innerHTML = `
                         <button onclick="stop_audio();" style="background-color:#fef5fd;">すべて停止</button>
                         
+                        <button onclick="audio_play(this);" class="btn" data-id="sampo">さんぽ</button>
+                            <p>
+                                After犬に出会う<br>
+                                「あるこ〜あるこ〜」
+                            </p>
                         <button onclick="audio_play(this);" class="btn" data-id="syakin">シャキーン</button>
                             <p>桃を割るとき</p>
                         <button onclick="audio_play(this);" class="btn" data-id="momofirst">短期戦闘音源</button>
