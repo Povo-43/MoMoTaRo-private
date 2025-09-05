@@ -4,7 +4,7 @@ const FILES_TO_CACHE = [
   "manifest.json",
   "Kiwi_maru.ttf",
   "musics/sampo.mp3",
-  "musics/syakin3.mp3",
+  "musics/syakin.mp3",
   "musics/momofirst.mp3",
   "musics/momosecond.mp3",
   "musics/shyan.mp3",
