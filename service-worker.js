@@ -3,11 +3,11 @@ const FILES_TO_CACHE = [
   "index.html",
   "manifest.json",
   "Kiwi_maru.ttf",
-  "musics/さんぽ.mp3",
-  "musics/シャキーン3.mp3",
-  "musics/桃first.mp3",
-  "musics/桃second.mp3",
-  "musics/ちゃんちゃん.mp3",
+  "musics/sampo.mp3",
+  "musics/syakin3.mp3",
+  "musics/momofirst.mp3",
+  "musics/momosecond.mp3",
+  "musics/shyan.mp3",
   "icons/icon-192.png",
   "icons/icon-512.png"
 ];
